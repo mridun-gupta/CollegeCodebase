@@ -18,6 +18,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import math
+from tabulate import tabulate
 
 # Step 1: Define problem parameters
 # L: Length of the domain (0 to 1)
@@ -79,3 +80,10 @@ plt.ylabel('u(x)')
 plt.legend()
 plt.grid(True)
 plt.savefig('bvp_finite_difference.png')
+plt.show()
+
+# Step 11: Print table with tabulate
+table_data = []
+for i in range(0, Nx, 10):
+    table_data.append([f"{x[i]:.2f}", f"{u[i]:.6f}", f"{u_analytical[i]:.6f}", f"{abs(u[i] - u_analytical[i]):.2e}"])
+print(tabulate(table_data, headers=["x", "Numerical u", "Analytical u", "Abs. Error"], tablefmt="fancy_grid"))

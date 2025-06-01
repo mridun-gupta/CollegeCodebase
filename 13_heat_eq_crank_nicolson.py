@@ -20,6 +20,7 @@ import matplotlib.pyplot as plt
 from scipy.sparse import diags
 from scipy.sparse.linalg import spsolve
 import math
+from tabulate import tabulate
 
 # Step 1: Define problem parameters
 # L: Length of the rod (in meters)
@@ -99,3 +100,18 @@ plt.legend()
 plt.grid(True)
 # Save the plot to a file
 plt.savefig('heat_equation_crank_nicolson.png')
+plt.show()
+
+# Step 11: Print table with tabulate
+# Select spatial indices to display (e.g., every 10th point)
+spatial_indices = list(range(0, Nx, 10))
+# Prepare headers: x values + selected times
+headers = ["x \\ t"] + [f"{n*dt:.3f}" for n in times_to_plot]
+# Prepare rows: for each spatial position, temperature values at chosen times
+table_data = []
+for i in spatial_indices:
+    row = [f"{x[i]:.2f}"]  # spatial location
+    for n in times_to_plot:
+        row.append(f"{u[n, i]:.6f}")
+    table_data.append(row)
+print(tabulate(table_data, headers=headers, tablefmt="fancy_grid"))

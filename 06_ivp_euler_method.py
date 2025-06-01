@@ -18,6 +18,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import math
+from tabulate import tabulate
 
 # Step 1: Define problem parameters
 # T: Total time (0 to 1)
@@ -67,3 +68,16 @@ plt.ylabel('u(t)')
 plt.legend()
 plt.grid(True)
 plt.savefig('ivp_euler_method.png')
+plt.show()
+
+# Step 9: Print table with tabulate
+indices = range(0, Nt + 1, 10)
+table_data = []
+for i in indices:
+    time_val = f"{t[i]:.2f}"
+    euler_val = f"{u[i]:.6f}"
+    analytic_val = f"{u_analytical[i]:.6f}"
+    abs_error = f"{abs(u[i] - u_analytical[i]):.6e}"
+    table_data.append([time_val, euler_val, analytic_val, abs_error])
+headers = ["t", "Euler Method", "Analytical", "Absolute Error"]
+print(tabulate(table_data, headers=headers, tablefmt="fancy_grid"))

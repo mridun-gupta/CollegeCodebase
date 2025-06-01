@@ -18,6 +18,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import math
+from tabulate import tabulate
 
 # Step 1: Define problem parameters
 # L: Length of the rod (in meters)
@@ -83,3 +84,18 @@ plt.legend()
 plt.grid(True)
 # Save the plot to a file
 plt.savefig('heat_equation_ftcs.png')
+plt.show()
+
+# Step 9: Print table with tabulate
+# Select spatial indices to display (e.g., every 10th point)
+spatial_indices = list(range(0, Nx, 10))
+# Prepare headers: x values + times
+headers = ["x \\ t"] + [f"{n*dt:.3f}" for n in times_to_plot]
+# Prepare rows: for each spatial index, list temperature at selected times
+table_data = []
+for i in spatial_indices:
+    row = [f"{x[i]:.2f}"]  # spatial position
+    for n in times_to_plot:
+        row.append(f"{u[n, i]:.6f}")
+    table_data.append(row)
+print(tabulate(table_data, headers=headers, tablefmt="fancy_grid"))

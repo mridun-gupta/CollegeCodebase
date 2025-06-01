@@ -18,6 +18,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import math
+from tabulate import tabulate
 
 # Step 1: Define problem parameters
 # T: Total time (0 to 1)
@@ -74,3 +75,16 @@ plt.ylabel('u(t)')
 plt.legend()
 plt.grid(True)
 plt.savefig('ivp_modified_euler_method.png')
+plt.show()
+
+# Step 9: Print table with tabulate
+indices = range(0, Nt + 1, 10)
+table_data = []
+for i in indices:
+    time_val = f"{t[i]:.2f}"
+    num_val = f"{u[i]:.6f}"
+    ana_val = f"{u_analytical[i]:.6f}"
+    abs_err = f"{abs(u[i] - u_analytical[i]):.6e}"
+    table_data.append([time_val, num_val, ana_val, abs_err])
+headers = ["t", "Modified Euler", "Analytical", "Absolute Error"]
+print(tabulate(table_data, headers=headers, tablefmt="fancy_grid"))

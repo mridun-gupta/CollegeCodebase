@@ -18,6 +18,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import math
+from tabulate import tabulate
 
 # Step 1: Define problem parameters
 # L: Length of the spatial domain (e.g., length of string)
@@ -90,3 +91,17 @@ plt.ylabel('Displacement u(x,t)')
 plt.legend()
 plt.grid(True)
 plt.savefig('wave_equation_explicit.png')
+plt.show()
+
+# Step 10: Print table with tabulate
+indices_x = range(0, Nx, 10)
+# Prepare headers: first column 'x', then columns for each selected time
+headers = ['x'] + [f't={t[n]:.3f}' for n in times_to_plot]
+# Build table rows: each row is [x_i, u(t0, x_i), u(t1, x_i), ...]
+table_data = []
+for i in indices_x:
+    row = [f"{x[i]:.2f}"]  # spatial position
+    for n in times_to_plot:
+        row.append(f"{u[n, i]:.6f}")
+    table_data.append(row)
+print(tabulate(table_data, headers=headers, tablefmt='fancy_grid'))

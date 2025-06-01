@@ -18,6 +18,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import math
+from tabulate import tabulate
 
 # Step 1: Define problem parameters
 # a, b: Constants in the equation 1/Cd = a*log(Re*Cd) + b
@@ -98,3 +99,15 @@ plt.ylabel('f(Cd)')
 plt.legend()
 plt.grid(True)
 plt.savefig('newton_raphson_drag_coefficient.png')
+plt.show()
+
+# Step 8: Print iteration table for Drag Coefficient
+table_data = []
+for i, (Cd_i, fCd_i) in enumerate(zip(Cd_values, f_values)):
+    if i == 0:
+        delta = 0.0
+    else:
+        delta = abs(Cd_values[i] - Cd_values[i - 1])
+    table_data.append([i, round(Cd_i, 8), round(fCd_i, 8), round(delta, 8)])
+headers = ["Iteration", "Cd (Approx.)", "f(Cd)", "Change in Cd"]
+print(tabulate(table_data, headers=headers, tablefmt="fancy_grid"))

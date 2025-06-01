@@ -18,6 +18,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import math
+from tabulate import tabulate
 
 # Step 1: Define the data points for interpolation
 # x_data: Known x-values (e.g., points where we know the function values)
@@ -51,7 +52,19 @@ y_plot = np.array([lagrange_interpolation(x, x_data, y_data) for x in x_plot])
 # y_true: True values of sin(x) at x_plot points
 y_true = np.sin(x_plot)
 
-# Step 5: Plot the results
+# Step 5: Print table for a subset of x_plot
+table_data = []
+for i in range(0, len(x_plot), 10):
+    x_val = x_plot[i]
+    interp_val = y_plot[i]
+    true_val = y_true[i]
+    error = abs(interp_val - true_val)
+    table_data.append([round(x_val, 3), round(interp_val, 6), round(true_val, 6), round(error, 6)])
+
+headers = ["x", "Interpolated y", "True sin(x)", "Absolute Error"]
+print(tabulate(table_data, headers=headers, tablefmt="fancy_grid"))
+
+# Step 6: Plot the results
 plt.figure(figsize=(10, 6))
 plt.plot(x_plot, y_plot, 'b-', label='Lagrange Interpolation')
 plt.plot(x_plot, y_true, 'r--', label='True Function (sin(x))')
@@ -62,3 +75,4 @@ plt.ylabel('y')
 plt.legend()
 plt.grid(True)
 plt.savefig('lagrange_interpolation.png')
+plt.show()

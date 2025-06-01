@@ -17,7 +17,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-import math
+from tabulate import tabulate
 
 # Step 1: Define the function whose root we want to find
 # f(x) = x^3 - x - 2
@@ -80,3 +80,19 @@ plt.ylabel('f(x)')
 plt.legend()
 plt.grid(True)
 plt.savefig('bisection_method.png')
+plt.show()
+
+# Step 8: Print iteration table
+table_data = []
+a_temp = 1.0
+b_temp = 2.0
+for i, (x_n, fx) in enumerate(zip(x_values, f_values)):
+    interval_width = (b_temp - a_temp) / 2
+    table_data.append([i + 1, round(x_n, 8), round(fx, 8), round(interval_width, 8)])
+    # Mimic interval update to reflect what actually happened
+    if f(x_n) * f(a_temp) < 0:
+        b_temp = x_n
+    else:
+        a_temp = x_n
+headers = ["Iteration", "x_n", "f(x_n)", "(b - a)/2"]
+print(tabulate(table_data, headers=headers, tablefmt="fancy_grid"))

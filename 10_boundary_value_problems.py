@@ -17,7 +17,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-import math
+from tabulate import tabulate
 
 # Step 1: Define the function and its derivative
 # f(x) = x^3 - x - 2
@@ -84,3 +84,10 @@ plt.ylabel('f(x)')
 plt.legend()
 plt.grid(True)
 plt.savefig('newton_raphson_method.png')
+plt.show()
+
+# Step 7: Print table with tabulate
+table_data = []
+for i, (x_val, f_val) in enumerate(zip(x_values, f_values)):
+    table_data.append([i, f"{x_val:.6f}", f"{f_val:.6e}"])
+print(tabulate(table_data, headers=["Iteration", "x", "f(x)"], tablefmt="fancy_grid"))

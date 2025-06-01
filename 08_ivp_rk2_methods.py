@@ -18,6 +18,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import math
+from tabulate import tabulate
 
 # Step 1: Define the ODE function
 # f(t, u) = -2u + t (the derivative du/dt)
@@ -93,3 +94,20 @@ plt.ylabel('u(t)')
 plt.legend()
 plt.grid(True)
 plt.savefig('rk2_methods.png')
+plt.show()
+
+# Step 10: Print table with tabulate
+indices = range(0, Nt + 1, 10)
+table_data = []
+for i in indices:
+    row = [
+        f"{t[i]:.2f}",
+        f"{u_heun[i]:.6f}",
+        f"{u_midpoint[i]:.6f}",
+        f"{u_ralston[i]:.6f}",
+        f"{u_classical[i]:.6f}",
+        f"{u_analytical[i]:.6f}",
+    ]
+    table_data.append(row)
+headers = ["t", "Heun", "Midpoint", "Ralston", "Classical RK2", "Analytical"]
+print(tabulate(table_data, headers=headers, tablefmt="fancy_grid"))

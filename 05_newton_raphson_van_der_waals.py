@@ -17,7 +17,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-import math
+from tabulate import tabulate
 
 # Step 1: Define problem parameters
 # P: Pressure (atm)
@@ -103,3 +103,15 @@ plt.ylabel('f(V)')
 plt.legend()
 plt.grid(True)
 plt.savefig('newton_raphson_vander_waals.png')
+plt.show()
+
+# Step 8: Print iteration table for Van der Waals
+table_data = []
+for i, (V_i, fV_i) in enumerate(zip(V_values, f_values)):
+    if i == 0:
+        delta = 0.0
+    else:
+        delta = abs(V_values[i] - V_values[i - 1])
+    table_data.append([i, round(V_i, 8), round(fV_i, 8), round(delta, 8)])
+headers = ["Iteration", "V (Approx.)", "f(V)", "Change in V"]
+print(tabulate(table_data, headers=headers, tablefmt="fancy_grid"))
