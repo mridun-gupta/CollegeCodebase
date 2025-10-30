@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Gupta"
+  given-names: "Mridun"
+  orcid: "https://orcid.org/0009-0004-7262-811X"
+title: "CollegeCodebase"
+version: 1.0.0
+doi: 10.5281/zenodo.17483106
+date-released: 2025-10-30
+url: "https://github.com/mridun-gupta/CollegeCodebase"
