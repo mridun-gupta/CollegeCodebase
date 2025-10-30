@@ -28,7 +28,6 @@ assignees: mridun-gupta
 
 ### Environment  
 Please fill in your setup details:
-
 - **Python version**: <!--- e.g., 3.10.6 --->
 - **NumPy version**: <!--- e.g., 1.24.3 --->
 - **Matplotlib version**: <!--- e.g., 3.7.1 --->
