@@ -1,16 +1,15 @@
-# 🧪 CollegeCodebase — A ChemTech Code Archive
+﻿# 🧪 CollegeCodebase — Mathematical Codes Archive
 
-> A structured logbook of codes, graphical plots, caffeine-fueled debugging and a lot more.
-> Where chemical reactions meet Python functions — with comments.
+> **⚠️ ARCHIVED REPOSITORY**
+> This repository is archived and no longer actively maintained.
+> For active development and more wild stuff, visit [SudoChem](https://github.com/mridun-gupta/sudochem).
 
 ---
 
 ## 💡 Why This Repo?
 
-This repo is a **clean, public archive** of the programming skills I developed during my **Integrated Masters of Technology in Chemical Technology** at **Institute of Chemical Technology, Mumbai – Marathwada Campus, Jalna (MarJ, in short)**.
+This repo is a **clean, public archive** of the mathematical computational codes I developed during my **Integrated Masters of Technology in Chemical Technology** at **Institute of Chemical Technology, Mumbai – Marathwada Campus, Jalna (MarJ, in short)**.
 It's intended as a reference for peers, juniors, and curious engineers who want to decode the ChemEng syllabus, line by line — in **Python**.
-
-If you’re here for the raw code snippets, or creative experimental chaos, visit [`SudoChem`](https://github.com/mridun-gupta/sudochem) — that’s where the wild stuff lives.
 
 ---
 
@@ -20,15 +19,16 @@ Currently riding solo with:
 
 - 🐍 **Python 3.x**
 
-More stacks might sneak in soon, if the curriculum doesn’t rust *me* first.
-
 ---
 
 ## 📚 What You'll Find
 
-- 📂 **Currently:** Python scripts focused on core **Mathematics** topics — clean, tested, and sorted
-- 🔜 **Coming Soon:** Coursework-related subject-specific simulations, plots, programs, and codes developed as I progress through my academic journey
-- 🧪 **Chem + Code Vision:** A long-term archive where chemical formulas and code functions stay in harmony
+- **Numerical Methods:** Lagrange interpolation, Bisection, Regula Falsi, Newton-Raphson (drag coefficient & Van der Waals)
+- **Initial Value Problems:** Euler method, Modified Euler, Runge-Kutta (RK2, RK4)
+- **Boundary Value Problems:** Finite Difference methods
+- **Partial Differential Equations:** Heat equation (FTCS, Crank-Nicolson), Wave equation
+- **Basic Bank ATM System modeling**
+
 - 🗂️ **Always Organized:** All files are meticulously structured to keep entropy near zero—because chaos belongs in quantum theory, not my folders
 
 The code is clean, commented, and reproducible — made to teach *and* survive viva questions.
@@ -48,8 +48,6 @@ As long as you:
 - 🧾 Give **proper attribution** to the original author
 - 📄 Include the original **LICENSE** file in any distribution
 
-> Contributions welcome! Especially if you’re a fellow ChemTech-er or an engineering wizard with tips to clean up a messy simulation.
-
 ---
 
 ## 👋 Let’s Connect
@@ -57,7 +55,8 @@ As long as you:
 - 🔗 [LinkedIn](https://www.linkedin.com/in/mridungupta)
 - 🔗 [GitHub](http://github.com/mridun-gupta)
 - ✉️ gmridun@gmail.com | admin@mridungupta.eu.org
-- 🌐 Also check: [`SudoChem`](https://github.com/mridun-gupta/sudochem) — for more chem-coding chaos.
+
+If you’re here for the raw code snippets, or creative experimental chaos, visit [`SudoChem`](https://github.com/mridun-gupta/sudochem) — that’s where the wild stuff lives.
 
 ---
 
